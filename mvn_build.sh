@@ -8,6 +8,7 @@ _prep() {
     cd ${myDir}
     git submodule init
     git submodule update
+    rm -f *.jar *.war
 }
 
 _build() {
