@@ -8,6 +8,8 @@ _prep() {
     cd ${myDir}
     git submodule init
     git submodule update
+    git submodule foreach git clean -xdf
+    git submodule foreach git reset --hard
     rm -f *.jar *.war
 }
 
