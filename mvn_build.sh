@@ -18,12 +18,11 @@ _build() {
 
 _install() {
     cd ${myDir}
-    cp -v ${buildDir}/guacamole/target/guacamole*.war ${myDir}
-    for tdir in $(find ${buildDir}/extensions -type d -name "target")
+    for tdir in $(find ${buildDir}/{guacamole,extensions/guacamole-auth-*} -type d -name "target")
     do
-        for jarfile in $(find $tdir -name "*.jar")
+        for jarfile in ${tdir}/guacamole-*.{war,jar}
         do
-            cp -v ${jarfile} $myDir
+            [[ -e $jarfile ]] && cp -v -t ${myDir} ${jarfile}
         done
     done
 }
