@@ -1,1 +1,44 @@
-apache guacamole pre-compiled jars
+================================================================================
+                  Apache Guacamole pre-compiled jars for RHEL
+================================================================================
+
+Builds Apache Guacamole from github repository
+   https://github.com/mlewissmith/guacamole-client
+which is in turn a fork of
+   https://github.com/apache/guacamole-client
+
+Built assets can be downloaded from the github release page
+   https://github.com/mlewissmith/guacamole-client-prebuilt/releases
+
+
+--------------------------------------------------------------------------------
+                               OBTAINING SOURCES
+--------------------------------------------------------------------------------
+
+Checkout source:
+   $ git clone --recurse-submodules \
+        https://github.com/mlewissmith/guacamole-client-prebuilt.git
+
+Recommend setting config option `submodule.recurse true` for this repository:
+   $ git config submodule.recurse true
+
+--------------------------------------------------------------------------------
+                                   COMPILING
+--------------------------------------------------------------------------------
+
+BuildRequires: maven >= 3.1.0
+
+- RHEL9 (Rocky, CentOS etc):
+   $ cd guacamole-client-prebuilt
+   $ ./mvn_build.sh
+
+- RHEL7 (CentOS7)
+  Stock maven is not suitable. Require later maven from Software Collections
+
+   # yum-config-manager --enable centos7-sclo-sclo centos7-sclo-rh
+   # yum install rh-maven35
+   $ cd guacamole-client-prebuilt
+   $ scl enable rh-maven bash
+   $ ./mvn_build.sh
+
+Built jarfiles will be dropped into topdir
