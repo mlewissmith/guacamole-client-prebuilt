@@ -10,6 +10,9 @@ which is in turn a fork of
 Built assets can be downloaded from the github release page
    https://github.com/mlewissmith/guacamole-client-prebuilt/releases
 
+Further details at
+   https://github.com/mlewissmith/guacamole-client-prebuilt/wiki
+
 
 --------------------------------------------------------------------------------
                                OBTAINING SOURCES
@@ -21,6 +24,7 @@ Checkout source:
 
 Recommend setting config option `submodule.recurse true` for this repository:
    $ git config submodule.recurse true
+
 
 --------------------------------------------------------------------------------
                                    COMPILING
