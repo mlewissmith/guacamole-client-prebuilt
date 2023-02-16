@@ -6,11 +6,10 @@ buildDir="${myDir}/guacamole-client"
 
 _prep() {
     cd ${myDir}
-    git submodule init
-    git submodule update
+    git submodule update --init
     git submodule foreach git clean -xdf
     git submodule foreach git reset --hard
-    rm -f *.jar *.war
+    git clean -X
 }
 
 _build() {
